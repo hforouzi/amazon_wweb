@@ -2367,6 +2367,7 @@
 #45 C:\\laragon\\www\\laravel-sb-admin-2-master\\server.php(21): require_once('C:\\\\laragon\\\\www\\\\...')
 #46 {main}
 "} 
+<<<<<<< HEAD
 [2021-12-19 14:53:38] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
  {"exception":"[object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
  at C:\\laragon\\www\\amazon_wweb\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:70)
@@ -2430,3 +2431,5 @@
 #56 C:\\laragon\\www\\amazon_wweb\\server.php(21): require_once('C:\\\\laragon\\\\www\\\\...')
 #57 {main}
 "} 
+=======
+>>>>>>> 89648c4bc09baf7d9d0265f3ca9367129fcd68af

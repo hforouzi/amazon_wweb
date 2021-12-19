@@ -186,7 +186,6 @@ class AmazonSearchController extends Controller
 
     public function requestResultStore($searchResult)
     {
-
         if(isset($searchResult))
         {
 
@@ -204,6 +203,7 @@ class AmazonSearchController extends Controller
                             "search_result_image"=>$item['image'],
                             "meta_id"=>$searchResult['metaid']
                        ]);
+                       dd($search_id);
                     }
                 }
 
