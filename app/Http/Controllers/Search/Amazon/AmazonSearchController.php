@@ -18,9 +18,27 @@ class AmazonSearchController extends Controller
     {
         $data=array();
         $client=new Client();
-        $res=$client->request("Get","https://api.rainforestapi.com/request?api_key=5C01557F15184D6DB8234870E00FF03B&type=search&amazon_domain=amazon.de&search_term=OPC&url=d&category_id=wer&refinements=werwr&page=12&sort_by=price_low_to_high&output=json&exclude_sponsored=true&include_html=true&language=de_DE&associate_id=2323
-");
-        dd($res);
+# set up the request parameters
+        $queryString = http_build_query([
+            'api_key' => '5C01557F15184D6DB8234870E00FF03B',
+            'type' => 'search',
+            'amazon_domain' => 'amazon.com',
+            'search_term' => 'opc',
+            'output' => 'json'
+        ]);
+
+# make the http GET request to Rainforest API
+        $ch = curl_init(sprintf('%s?%s', 'https://api.rainforestapi.com/request', $queryString));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+        $api_result = curl_exec($ch);
+        curl_close($ch);
+
+# print the JSON response from Rainforest API
+        dd( json_decode($api_result, true));
+        $res=$client->request("Get","https://api.rainforestapi.com/request?api_key=5C01557F15184D6DB8234870E00FF03B&type=search&amazon_domain=amazon.com&search_term=opc&output=json");
+        dd(json_decode($res));
         try {
             if(isset($request->amazonUrl))
                 $data['amazonUrl']=$request->amazonUrl;
