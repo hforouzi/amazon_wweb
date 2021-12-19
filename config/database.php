@@ -143,5 +143,10 @@ return [
         ],
 
     ],
+    'dbal' => [
+        'types' => [
+            'timestamp' => \Illuminate\Database\DBAL\TimestampType::class,
+        ],
+    ],
 
 ];
