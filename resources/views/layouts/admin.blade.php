@@ -4,8 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Laravel SB Admin 2">
-    <meta name="author" content="Alejandro RH">
+    <meta name="description" content="Warnke Amazon compare">
+    <meta name="author" content="Hossein Forouzi">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -28,57 +28,7 @@
 <div id="wrapper">
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item {{ Nav::isRoute('home') }}">
-            <a class="nav-link" href="{{ route('home') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>{{ __('Dashboard') }}</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            {{ __('Settings') }}
-        </div>
-
-        <!-- Nav Item - Profile -->
-        <li class="nav-item {{ Nav::isRoute('profile') }}">
-            <a class="nav-link" href="{{ route('profile') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Profile') }}</span>
-            </a>
-        </li>
-
-        <!-- Nav Item - About -->
-        <li class="nav-item {{ Nav::isRoute('about') }}">
-            <a class="nav-link" href="{{ route('about') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('About') }}</span>
-            </a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-
+@include('.layouts.partial.menu')
     </ul>
     <!-- End of Sidebar -->
 
@@ -150,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="small text-gray-500">December 12, 2019</div>
+                                    <div class="small text-gray-500">December 12, 2021</div>
                                     <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                 </div>
                             </a>
@@ -161,7 +111,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="small text-gray-500">December 7, 2019</div>
+                                    <div class="small text-gray-500">December 7, 2021</div>
                                     $290.29 has been deposited into your account!
                                 </div>
                             </a>
@@ -172,7 +122,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="small text-gray-500">December 2, 2019</div>
+                                    <div class="small text-gray-500">December 2, 2021</div>
                                     Spending Alert: We've noticed unusually high spending for your account.
                                 </div>
                             </a>
@@ -194,7 +144,7 @@
                             </h6>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                                    <img class="rounded-circle" src="" alt="">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
                                 <div class="font-weight-bold">
@@ -204,7 +154,7 @@
                             </a>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                                    <img class="rounded-circle" src="" alt="">
                                     <div class="status-indicator"></div>
                                 </div>
                                 <div>
@@ -214,7 +164,7 @@
                             </a>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                                    <img class="rounded-circle" src="" alt="">
                                     <div class="status-indicator bg-warning"></div>
                                 </div>
                                 <div>
@@ -224,7 +174,7 @@
                             </a>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                                    <img class="rounded-circle" src="" alt="">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
                                 <div>
@@ -286,7 +236,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Alejandro RH 2020</span>
+                    <span>Copyright &copy; Hossein Forouzi 2021</span>
                 </div>
             </div>
         </footer>
@@ -329,5 +279,6 @@
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    @yield("footer_script")
 </body>
 </html>
