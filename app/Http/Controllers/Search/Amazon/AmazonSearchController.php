@@ -239,35 +239,37 @@ class AmazonSearchController extends Controller
             DB::beginTransaction();
             try {
                 foreach ( $searchResult as $key=> $item) {
-
                     $search_id = AmazonSearchResults::create([
                         "search_result_position"=>$item['position'],
                         "search_result_title"=>$item['title'],
-                        "search_result_asin"=>$item['asin'],
+                        "search_result_asin"=>isset($item['asin'])?$item['asin']:"0",
                         "search_result_link"=>$item['link'],
                         "search_result_image"=>$item['image'],
                         "meta_id"=>$metaid
                     ]);
                     if (isset($search_id->id))
-                    {
-                        foreach ( $item["categories"] as $val ) {
+                    {if(isset($item["categories"])) {
+                        foreach ($item["categories"] as $val) {
                             AmazonSearchResultsCategory::create([
-                                "search_result_id"=>$search_id->id,
-                                "search_result_category_name"=>$val['name'],
-                                "search_result_category_amazon_id"=>$val['id']
+                                "search_result_id" => $search_id->id,
+                                "search_result_category_name" => $val['name'],
+                                "search_result_category_amazon_id" => $val['id']
                             ]);
                         }
-                        foreach ($item['prices'] as $prices) {
-                            AmazonSearchResultsPrice::create([
-                                "search_result_id"=>$search_id->id,
-                                "search_result_price_symbol"=>$prices['symbol'],
-                                "search_result_price_value"=>$prices["value"],
-                                "search_result_price_currency"=>$prices["currency"],
-                                "search_result_price_raw"=>$prices["raw"],
-                                "search_result_price_asin"=>$prices["asin"],
-                                "search_result_price_link"=>$prices["link"]
+                    }
+                        if(isset($item['prices'])) {
+                            foreach ($item['prices'] as $prices) {
+                                AmazonSearchResultsPrice::create([
+                                    "search_result_id" => $search_id->id,
+                                    "search_result_price_symbol" => $prices['symbol'],
+                                    "search_result_price_value" => $prices["value"],
+                                    "search_result_price_currency" => $prices["currency"],
+                                    "search_result_price_raw" => $prices["raw"],
+                                    "search_result_price_asin" => isset($prices['asin']) ? $prices['asin'] : "0",
+                                    "search_result_price_link" => isset($prices['link']) ? $prices['link'] : "0"
 
-                            ]);
+                                ]);
+                            }
                         }
 
                     }
